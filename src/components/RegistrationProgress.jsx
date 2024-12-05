@@ -3,9 +3,9 @@ import { AiOutlineFileDone } from "react-icons/ai";
 const RegistrationProgress = ({ currentStep }) => {
   const steps = [
     { id: 1, name: 'Personal Info', path: '/register/personal' },
-    { id: 2, name: 'Account Details', path: '/register/account' },
-    { id: 3, name: 'Verification', path: '/register/verify' },
-    { id: 4, name: 'Confirmation', path: '/register/complete' }
+    { id: 2, name: 'Work Experience', path: '/register/experience' },
+    { id: 3, name: 'Education', path: '/register/education' },
+    { id: 4, name: 'Resume Upload', path: '/register/resume' }
   ];
 
   return (

@@ -71,7 +71,7 @@ const UserJobDetails = () => {
 
 
   return (
-    <div className='bg-[#EEF0F2] w-full h-screen lg:ml-72'>
+    <div className='bg-[#EEF0F2] w-full h-full lg:ml-72'>
 
 
       <div className='bg-white w-auto h-auto px-10 py-6 flex items-center justify-between shadow-sm'>
@@ -181,66 +181,90 @@ const UserJobDetails = () => {
 
 
       <div className='p-10 h-[1000px] flex justify-center lg:h-[900px] overflow-y-auto'>
-        <div className='w-9/12 h-auto mr-11 flex flex-col'>
-          <div className='w-16 mb-7'>
-               <NavLink
-               to='/userjobs'
-               className='text-black text-md flex items-center gap-2 w-auto'>
-                  <FaArrowLeftLong />
-                  Back
-               </NavLink>
-          </div>
-          <div>
+        <div className='lg:w-9/12 h-auto lg:mr-11 flex flex-col gap-14 mb-10'>
+          <div className='flex flex-col gap-8'>
+            <div className='w-16 '>
+                <NavLink
+                to='/userjobs'
+                className='text-black text-md flex items-center gap-2 w-auto'>
+                    <FaArrowLeftLong />
+                    Back
+                </NavLink>
+            </div>
             <div className='flex w-full h-auto'>
 
-                {jobCardsDetails.map((job) => (
-                  <div
-                  key={job.id}
-                  className='flex justify-between gap-2 w-full'>
-                    <div className='flex flex-col gap-4'>
-                      <div className='flex flex-col gap-1'>
-                        <span className='text-xs font-normal'>{job.date}</span>
-                        <h2 className='text-3xl font-semibold'>{job.title}</h2>
-                      </div>
-                      <div className='flex flex-col gap-2'>
-                        <div className='flex items-center gap-2'>
-                          <span className='text-lg font-medium'>{job.company}</span>
-                          <div className='text-5xl flex items-center w-1 h-1 bg-black rounded-full'></div>
-                          <span className='text-md font-normal'>{job.location}</span>
+                  {jobCardsDetails.map((job) => (
+                    <div
+                    key={job.id}
+                    className='flex md:flex-row flex-col gap-11 justify-between md:gap-2 w-full'>
+                      <div className='flex flex-col gap-4'>
+                        <div className='flex flex-col gap-1'>
+                          <span className='text-xs font-normal'>{job.date}</span>
+                          <h2 className='text-3xl font-semibold'>{job.title}</h2>
                         </div>
-                        <div className="flex gap-2">
-                          {job.jobTypes.map((type, index) => (
-                          <span
-                          key={index}
-                          className="px-3 py-2 flex items-center text-xs border-2 border-gray-400 rounded-lg text-gray-900"
-                          >
-                          {type}
-                          </span>
-                          ))}
+                        <div className='flex flex-col gap-2'>
+                          <div className='flex items-center gap-2'>
+                            <span className='text-lg font-medium'>{job.company}</span>
+                            <div className='text-5xl flex items-center w-1 h-1 bg-black rounded-full'></div>
+                            <span className='text-md font-normal'>{job.location}</span>
+                          </div>
+                          <div className="flex gap-2">
+                            {job.jobTypes.map((type, index) => (
+                            <span
+                            key={index}
+                            className="px-3 py-2 flex items-center text-xs border-2 border-gray-400 rounded-lg text-gray-900"
+                            >
+                            {type}
+                            </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                      <div className='flex flex-col gap-0 md:gap-4 items-start md:items-end'>
+                        <div className='flex flex-col gap-1 items-start md:items-end'>
+                          <span className='text-xs font-normal'>{job.currencyType}</span>
+                          <h2 className='text-3xl font-semibold'>{job.salary}</h2>
+                        </div>
+                        <div className='flex items-center gap-2 mt-5'>
+                          <button className='flex border-2 border-[#013A8A] transition-all duration-500 py-3 px-8 rounded-xl text-[#013A8A] font-semibold hover:text-white hover:border-2 hover:border-[#0149AD] hover:bg-[#0149AD] '>
+                            Apply
+                          </button>
+                          <button className='flex items-center px-3 py-3 border-[1px] border-gray-400 rounded-lg'>
+                            <CiBookmark size={22}/>
+                          </button>
+                          <button className='flex items-center px-3 py-3 border-[1px] border-gray-400 rounded-lg'>
+                            <GoShareAndroid size={22}/>
+                          </button>
                         </div>
                       </div>
                     </div>
-                    <div className='flex flex-col gap-4 items-end'>
-                      <div className='flex flex-col gap-1 items-end'>
-                        <span className='text-xs font-normal'>{job.currencyType}</span>
-                        <h2 className='text-3xl font-semibold'>{job.salary}</h2>
-                      </div>
-                      <div className='flex items-center gap-2 mt-5'>
-                        <button className='hidden md:flex border-2 border-[#013A8A] transition-all duration-500 py-3 px-8 rounded-xl text-[#013A8A] font-semibold hover:text-white hover:border-2 hover:border-[#0149AD] hover:bg-[#0149AD] '>
-                          Search
-                        </button>
-                        <button className='flex items-center px-3 py-3 border-2 border-gray-400 rounded-lg'>
-                          <CiBookmark size={22}/>
-                        </button>
-                        <button className='flex items-center px-3 py-3 border-2 border-gray-400 rounded-lg'>
-                          <GoShareAndroid size={22}/>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+                  ))}
 
             </div>
+          </div>
+          <div className='flex flex-col gap-2'>
+            <h3 className='font-semibold'>About This Role</h3>
+            <p className='text-sm text-gray-500 leading-6'>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ex exercitationem nisi accusantium alias ducimus molestias, dolorum praesentium temporibus veniam tempora voluptates nostrum qui, vel a nesciunt sint officiis est.
+              Earum odio quae sed explicabo praesentium, iste suscipit repudiandae recusandae tempore modi cum ea. Consequuntur esse dolore cumque. Doloremque excepturi soluta corporis ea error, non rerum corrupti maxime velit explicabo.
+              Delectus quisquam rerum culpa explicabo voluptate optio eius ipsum ipsam obcaecati nihil, dignissimos facere sequi. Similique repellat sint omnis animi laborum sapiente in labore! Odio accusantium laborum ab quaerat suscipit!
+            </p>
+          </div>
+          <div className='flex flex-col gap-2'>
+            <h3 className='font-semibold'>Qualifications</h3>
+            <p className='text-sm text-gray-500 leading-6'>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ex exercitationem nisi accusantium alias ducimus molestias, dolorum praesentium temporibus veniam tempora voluptates nostrum qui, vel a nesciunt sint officiis est.
+              Earum odio quae sed explicabo praesentium, iste suscipit repudiandae recusandae tempore modi cum ea. Consequuntur esse dolore cumque. Doloremque excepturi soluta corporis ea error, non rerum corrupti maxime velit explicabo.
+              Delectus quisquam rerum culpa explicabo voluptate optio eius ipsum ipsam obcaecati nihil, dignissimos facere sequi. Similique repellat sint omnis animi laborum sapiente in labore! Odio accusantium laborum ab quaerat suscipit!
+            </p>
+          </div>
+          <div className='flex flex-col gap-2'>
+            <h3 className='font-semibold'>Responsibility</h3>
+            <p className='text-sm text-gray-500 leading-6'>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ex exercitationem nisi accusantium alias ducimus molestias, dolorum praesentium temporibus veniam tempora voluptates nostrum qui, vel a nesciunt sint officiis est.
+              Earum odio quae sed explicabo praesentium, iste suscipit repudiandae recusandae tempore modi cum ea. Consequuntur esse dolore cumque. Doloremque excepturi soluta corporis ea error, non rerum corrupti maxime velit explicabo.
+              Delectus quisquam rerum culpa explicabo voluptate optio eius ipsum ipsam obcaecati nihil, dignissimos facere sequi. Similique repellat sint omnis animi laborum sapiente in labore! Odio accusantium laborum ab quaerat suscipit!
+            </p>
           </div>
         </div>
 

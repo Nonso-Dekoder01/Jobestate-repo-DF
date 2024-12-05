@@ -24,6 +24,10 @@ import PersonalInfoPage from "./components/PersonalInfoPage";
 import ForgottenPassword from "./components/ForgottenPassword";
 import ForgottenPasswordNumber from "./components/ForgottenPasswordNumber";
 import SuccessPage from "./components/SuccessPage";
+import Experience from "./components/Experience";
+import Education from "./components/Education";
+import Resume from "./components/Resume";
+import RegisteredSuccess from "./components/RegisteredSuccess";
 // import Footer from './components/Footer'
 
 const App = () => {
@@ -38,8 +42,13 @@ const App = () => {
       "/forgotpasswordnumber",
       "/forgotpasswordcodesemail",
       "/forgotpasswordcodesnumber",
-      "/changepasswords","/register/personal",
-      '/success'
+      "/changepasswords",
+      "/register/personal",
+      "/success",
+      "/register/experience",
+      "/register/education",
+      "/register/resume",
+      "/register/success"
     ]; // Add all routes where navbar should be hidden
     const userNavbarRoutes = [
       "/userdashboard",
@@ -70,14 +79,12 @@ const App = () => {
           <Route path="/userdashboard" element={<UserDashboard />} />
           <Route path="/userjobs" element={<UserJobs />} />
           <Route path="/userjobs/details" element={<UserJobDetails />} />
-          <Route
-            path="/userapplicationstatus"
-            element={<UserApplicationStatus />}
-          />
+          <Route  path="/userapplicationstatus" element={<UserApplicationStatus />} />
           <Route path="/usersavedjobs" element={<UserSavedJobs />} />
           <Route path="/userblog" element={<UserBlog />} />
           <Route path="/usernotification" element={<UserNotification />} />
           <Route path="/userprofile" element={<UserProfile />} />
+          <Route path="/usersettings" element={<UserSettings />} />
           <Route path="/usersettings" element={<UserSettings />} />
         </Routes>
       </div>
@@ -89,24 +96,21 @@ const App = () => {
         <Route path="/blog" element={<Blog />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/forgotpassword" element={<ForgottenPassword />} />
-        <Route
-          path="/forgotpasswordnumber"
-          element={<ForgottenPasswordNumber />}
-        />
-        <Route path="/signin" element={<SignIn />} />{" "}
+        <Route path="/forgotpasswordnumber" element={<ForgottenPasswordNumber />}/>
+        <Route path="/signin" element={<SignIn />} />
+
+
         {/* Example for Sign In */}
-        <Route
-          path="/forgotpasswordcodesemail"
-          element={<ForgotPasswordCodes />}
-        />
-        <Route
-          path="/forgotpasswordcodesnumber"
-          element={<ForgotPasswordCodesNumber />}
-        />
+        <Route path="/forgotpasswordcodesemail" element={<ForgotPasswordCodes />} />
+        <Route path="/forgotpasswordcodesnumber"  element={<ForgotPasswordCodesNumber />} />
         <Route path="/changepasswords" element={<ChangePassword />} />
         <Route path="/register/personal" element={<PersonalInfoPage />} />
-        <Route path='/success' element={<SuccessPage/>} />
-      </Routes>
+        <Route path="/success" element={<SuccessPage />} />
+        <Route path="/register/experience" element={<Experience />} />
+        <Route path="/register/education" element={<Education />} />
+        <Route path="/register/resume" element={<Resume />} />
+        <Route path="/register/success" element={<RegisteredSuccess />} />
+      </Routes>      
     </div>
   );
 };

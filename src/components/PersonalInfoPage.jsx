@@ -58,6 +58,16 @@ function PersonalInfoPage() {
     setErrors(newErrors);
     return isValid;
   };
+  const [fileName, setFileName] = useState("No file chosen");
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setFileName(file.name);
+    } else {
+      setFileName("No file chosen");
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -68,7 +78,7 @@ function PersonalInfoPage() {
       localStorage.setItem("personalInfo", JSON.stringify(formData));
 
       // Navigate to next page
-      navigate("/register/account");
+      navigate("/register/experience");
     }
   };
 
@@ -95,7 +105,7 @@ function PersonalInfoPage() {
         <div className="flex-1 flex justify-end">
           <button
             type="button"
-            onClick={() => navigate("/register/account")}
+            onClick={() => navigate("/register/experience")}
             className="text-blue-600 hover:underline"
           >
             Skip
@@ -105,91 +115,123 @@ function PersonalInfoPage() {
 
       <form
         onSubmit={handleSubmit}
-        className="max-w-[674px] flex flex-col gap-5 mt-6 md:mt-[70px] lg:mx-auto"
+        className="max-w-[674px] md:h-[600px] overflow-auto  flex flex-col gap-5 mt-6 md:mt-[70px] lg:mx-auto"
       >
-        <div className="md:flex-row flex-col flex  md:items-center gap-6">
+        <div className="md:flex-row flex-col flex md:items-center gap-6">
           <div className="md:w-[100px] w-full h-[300px] flex items-center justify-center border-[1px] border-[#1155B2] md:h-[100px]">
-            {" "}
             <FaPlus className="text-[#1155B2]" size={25} />
           </div>
-          <div className="flex flex-col gap-4 ">
+          <div className="flex flex-col gap-4">
             <div>
               <h1 className="text-[14px] font-[300]">
                 Please upload square image, size less than 100KB
               </h1>
-            </div>{" "}
+            </div>
             <div className="flex items-center gap-6">
-              {" "}
-              <button className="w-[133px] h-[42px] border-[#0149AD] text-[#0149AD] rounded-[5px] flex items-center justify-center  border-[1px]">
+              <input
+                type="file"
+                id="fileInput"
+                className="hidden"
+                onChange={handleFileChange}
+              />
+              <label
+                htmlFor="fileInput"
+                className="w-[133px] h-[42px] border-[#0149AD] text-[#0149AD] rounded-[5px] flex items-center justify-center border-[1px] cursor-pointer hover:bg-blue-50 transition-colors"
+              >
                 Choose File
-              </button>{" "}
-              <p className="text-[#A4A4A4] text-[14px] font-[300]">No file chosen</p>
+              </label>
+              <p className="text-[#A4A4A4] text-[14px] font-[300]">
+                {fileName}
+              </p>
             </div>
           </div>
         </div>
 
-        <div className="w-full flex flex-col gap-5 py-5">
-        <div className="w-full flex flex-col gap-1">
-                <h1 className="text-[14px] text-[#012C68]">FIRST NAME</h1>
-               
-          <input
-            type="text"
-            name="fullName"
-            value={formData.fullName}
-            onChange={handleChange}
-            placeholder="Enter First Name"
-            className={`
-              w-full outline-none rounded-[6px] border-[1px] text-[14px] p-3 text-[#98A2B3] font-[300] border-[#E1E1E1] h-[50px]
-              ${errors.fullName ? "border-red-500" : "border-gray-300"}
-            `}
-          />
-          {errors.fullName && (
-            <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>
-          )}
-        </div>
-        <div className="w-full flex flex-col gap-1">
-                <h1 className="text-[14px] text-[#012C68]">LAST NAME</h1>
-               
-          <input
-            type="text"
-            name="fullName"
-            value={formData.fullName}
-            onChange={handleChange}
-            placeholder="Enter Last Name"
-            className={`
-              w-full outline-none rounded-[6px] border-[1px] text-[14px] p-3 text-[#98A2B3] font-[300] border-[#E1E1E1] h-[50px]
-              ${errors.fullName ? "border-red-500" : "border-gray-300"}
-            `}
-          />
-          {errors.fullName && (
-            <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>
-          )}
-        </div>
-        <div className="w-full flex flex-col gap-1">
-        <h1 className="text-[14px] text-[#012C68]">LOCATION</h1>
-          <input
-            type="text"
-            placeholder="Current Location"
-            className={`
-                 w-full outline-none rounded-[6px] border-[1px] text-[14px] p-3 text-[#98A2B3] font-[300] border-[#E1E1E1] h-[50px]
-              ${errors.email ? "border-red-500" : "border-gray-300"}
-            `}
-          />
-          {errors.email && (
-            <p className="text-red-500 text-sm mt-1">{errors.email}</p>
-          )}
-        </div>
-        </div>
+        <div className="w-full flex overflow-auto scrollbar-hide  flex-col gap-5 ">
+          {/* First Name */}
+          <div className="w-full flex flex-col gap-1">
+            <h1 className="text-[14px] text-[#012C68]">FIRST NAME</h1>
+            <input
+              type="text"
+              name="fullName"
+              value={formData.fullName}
+              onChange={handleChange}
+              placeholder="Enter First Name"
+              className={`
+                w-full outline-none rounded-[6px] border-[1px] text-[14px] p-3 text-[#98A2B3] font-[300] border-[#E1E1E1] h-[50px]
+                ${errors.fullName ? "border-red-500" : "border-gray-300"}
+              `}
+            />
+            {errors.fullName && (
+              <div className="text-red-500 text-sm mt-1 max-h-[40px] overflow-y-auto">
+                {errors.fullName}
+              </div>
+            )}
+          </div>
 
-      
+          {/* Last Name */}
+          <div className="w-full flex flex-col gap-1">
+            <h1 className="text-[14px] text-[#012C68]">LAST NAME</h1>
+            <input
+              type="text"
+              name="fullName"
+              value={formData.fullName}
+              onChange={handleChange}
+              placeholder="Enter Last Name"
+              className={`
+                w-full outline-none rounded-[6px] border-[1px] text-[14px] p-3 text-[#98A2B3] font-[300] border-[#E1E1E1] h-[50px]
+                ${errors.fullName ? "border-red-500" : "border-gray-300"}
+              `}
+            />
+            {errors.fullName && (
+              <div className="text-red-500 text-sm mt-1 max-h-[40px] overflow-y-auto">
+                {errors.fullName}
+              </div>
+            )}
+          </div>
 
-        <button
-          type="submit"
-          className="mt-4 w-full bg-blue-500 text-white py-2 rounded flex items-center justify-center hover:bg-blue-600 transition-colors"
-        >
-          Next
-          <BiChevronRight size={20} className="ml-2" />
-        </button>
+          {/* Location */}
+          <div className="w-full flex flex-col gap-1">
+            <h1 className="text-[14px] text-[#012C68]">LOCATION</h1>
+            <input
+              type="text"
+              placeholder="Current Location"
+              className={`
+                w-full outline-none rounded-[6px] border-[1px] text-[14px] p-3 text-[#98A2B3] font-[300] border-[#E1E1E1] h-[50px]
+                ${errors.email ? "border-red-500" : "border-gray-300"}
+              `}
+            />
+            {errors.email && (
+              <div className="text-red-500 text-sm mt-1 max-h-[40px] overflow-y-auto">
+                {errors.email}
+              </div>
+            )}
+          </div>
+
+          {/* Date */}
+          <div className="w-full flex flex-col gap-1">
+            <h1 className="text-[14px] text-[#012C68]">DATE OF BIRTH</h1>
+            <input
+              placeholder="Select Date"
+              type="date"
+              className={`
+                w-full outline-none rounded-[6px] border-[1px] text-[14px] p-3 text-[#98A2B3] font-[300] border-[#E1E1E1] h-[50px]
+                ${errors.email ? "border-red-500" : "border-gray-300"}
+              `}
+            />
+          </div>
+          <div className="flex items-center justify-center w-full gap-[30px]">
+            <button className=" w-[162px] rounded-[20px] text-gray-300 border-gray-300 border-[2px]  h-[64px]  flex items-center justify-center ">
+              Back
+            </button>
+            <button
+              type="submit"
+              className="w-[162px] flex items-center justify-center h-[64px] rounded-[20px] text-[#013A8A] border-[#013A8A] border-[2px]"
+            >
+              Continue
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   );

@@ -20,14 +20,14 @@ const SignIn = () => {
     <div className="w-full mx-auto h-full md:h-screen  flex items-center justify-center">
       <div className="xl:flex h-full items-center  w-full">
         <div
-          className="w-full py-2  h-full overflow-auto  px-5 md:px-10"
+          className="w-full py-2  h-full   px-5 md:px-10"
           style={bgimage}
         >
           <div className=" flex gap-4 it h-full flex-col">
             <Link to='/' className=" w-[150px] md:w-[200px]">
               <img src={logo} alt="" />
             </Link>
-            <div className="mx-auto py-1 mt-5 md:mt-0 flex flex-col  w-full      md:w-[400px] h-full md:h-screen">
+            <div className="mx-auto py-1 mt-5 md:mt-0 flex flex-col  w-full overflow-auto scrollbar-hide justify-center      md:w-[400px] h-full md:h-screen">
               <div className= "text-left md:text-center">
                 <h1 className="font-sans text-[40px] font-[600]">Log In</h1>
                 <p className="text-[#6B6B6B] font-[600]">
@@ -42,6 +42,7 @@ const SignIn = () => {
                     type="email"
                     placeholder="Enter Email Address"
                     name=""
+                    required
                     id=""
                   />
                 </div>

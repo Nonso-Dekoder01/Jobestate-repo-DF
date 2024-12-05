@@ -305,9 +305,9 @@ const UserDashboard = () => {
                   <p className="text-xl font-bold">{job.salary}</p>
                   <p className="text-sm text-gray-500">{job.currencyType}</p>
                 </div>
-                <button className="px-4 py-2 border-2 border-[#013A8A] md:text-[12px] md:px-6 md:py-3 rounded-full text-[#013A8A] font-semibold xl:hover:text-white xl:hover:border-2 xl:hover:border-[#0149AD] xl:hover:bg-[#0149AD] xl:transition-all xl:duration-200">
+                <NavLink to='/userjobs/details' className="px-2 py-2 md:border-2 border-[#013A8A] md:text-[12px] md:px-6 md:py-3 md:rounded-full text-[#013A8A] font-semibold xl:hover:text-white xl:hover:border-2 xl:hover:border-[#0149AD] xl:hover:bg-[#0149AD] xl:transition-all xl:duration-200">
                   Details
-                </button>
+                </NavLink>
               </div>
             </div>
           ))}
