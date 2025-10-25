@@ -83,18 +83,18 @@ setOpen(!open)
             isActive ? 'text-[#013A8A] font-semibold' : 'text-[#2b2b2b] font-normal'}
             
             >Find Jobs</NavLink> */}
-            <NavLink
+            {/* <NavLink
             to='/userjobs'
             className={({isActive}) =>
             isActive ? 'text-[#013A8A] font-semibold' : 'text-[#2b2b2b] font-normal'}
             
-            >Jobs</NavLink>
-            <NavLink
+            >Jobs</NavLink> */}
+            {/* <NavLink
             to='/userblog'
             className={({isActive}) =>
             isActive ? 'text-[#013A8A] font-semibold' : 'text-[#2b2b2b] font-normal'}
             
-            >Blog</NavLink>
+            >Blog</NavLink> */}
         </div>
         <div className="flex items-center relative gap-6 xl:hidden">
           <div onClick={HandleShow} className="flex items-center">
