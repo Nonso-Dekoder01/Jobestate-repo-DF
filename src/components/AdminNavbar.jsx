@@ -69,24 +69,24 @@ setOpen(!open)
                             isActive ? 'text-[#013A8A] font-semibold' : 'text-[#2b2b2b] font-normal'}
                             
                             >Home</NavLink> */}
-                            <NavLink
-                            to='/adminjobseekers'
+                            {/* <NavLink
+                            to='/admindashboard'
                             className={({isActive}) =>
                             isActive ? 'text-[#013A8A] font-semibold' : 'text-[#2b2b2b] font-normal'}
                             
-                            >Job Seekers</NavLink>
+                            >Job Seekers</NavLink> */}
                             {/* <NavLink
                             to='/findjobs'
                             className={({isActive}) =>
                             isActive ? 'text-[#013A8A] font-semibold' : 'text-[#2b2b2b] font-normal'}
                             
                             >Find Jobs</NavLink> */}
-                            <NavLink
+                            {/* <NavLink
                             to='/adminemployers'
                             className={({isActive}) =>
                             isActive ? 'text-[#013A8A] font-semibold' : 'text-[#2b2b2b] font-normal'}
                             
-                            >Employers</NavLink>
+                            >Employers</NavLink> */}
                             <NavLink
                             to='/approvejobs'
                             className={({isActive}) =>
@@ -141,7 +141,7 @@ setOpen(!open)
                             Home
                           </NavLink> */}
                           <NavLink
-                            to="/adminjobseekers"
+                            to="/admindashboard"
                             className={({isActive}) =>
                             isActive ? 'text-[#013A8A] font-semibold' : 'text-[#2b2b2b] font-normal'}
                             onClick={() => setOpen(false)}

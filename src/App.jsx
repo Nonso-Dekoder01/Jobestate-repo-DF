@@ -41,8 +41,8 @@ import EmployerDashboard from "./components/EmployerDashboard";
 import EmployerJobForm from "./components/EmployerJobForm";
 // import EmployerJobs from "./components/EmployerJobs";
 import EmployerApplicants from "./components/EmployerApplicants";
-import AdminJobSeekers from "./components/AdminJobSeekers";
-import AdminEmployers from "./components/AdminEmployers";
+// import AdminJobSeekers from "./components/AdminJobSeekers";
+// import AdminEmployers from "./components/AdminEmployers";
 import ApproveJobs from "./components/ApproveJobs";
 
 const App = () => {
@@ -87,7 +87,7 @@ const App = () => {
       "/adminblog",
       "/adminjobseekers",
       "/adminemployers",  
-      "/approvejobs", 
+      "/approvejobs",
     ];
 
     const employerNavbarRoutes = [
@@ -148,8 +148,8 @@ const App = () => {
           <Route path="/employerdashboard" element={<EmployerDashboard />} />
 
           {/* Admin-specific routes */}
-          <Route path="/adminjobseekers" element={<AdminJobSeekers />} />
-          <Route path="/adminemployers" element={<AdminEmployers />} />
+          {/* <Route path="/admindashboard" element={<AdminJobSeekers />} /> */}
+          {/* <Route path="/adminemployers" element={<AdminEmployers />} /> */}
           <Route path="/approvejobs" element={<ApproveJobs />} />
           {/* <Route path="/adminjobdetails" element={<AdminJobDetails />} /> */}
           {/* <Route path="/adminblog" element={<AdminBlog />} /> */}
