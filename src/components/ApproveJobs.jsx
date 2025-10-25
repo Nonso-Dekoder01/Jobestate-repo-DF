@@ -41,7 +41,7 @@ const ApproveJobs = () => {
       alert("🗑️ Job deleted successfully!");
     } catch (err) {
       console.error("❌ Error deleting job:", err);
-      alert("Delete failed!");
+      alert("Job Delete failed!");
     }
   };
 
